@@ -38,7 +38,7 @@ fun LoteriaView(viewModels: LoteriaViewModels){
                 fontWeight = FontWeight.Bold
             )
         }else{
-
+            //
             Text(text = "Los 6 números son:",
                 fontSize = 24.sp,
                 fontWeight = FontWeight.Bold,

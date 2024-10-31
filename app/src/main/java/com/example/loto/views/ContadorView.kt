@@ -28,7 +28,7 @@ fun Contador(viewModel: ContadorViewModel){
             fontWeight = FontWeight.Bold,
             fontSize = 40.sp
         )
-
+//
         FloatingActionButton(
             onClick = { viewModel.add()},
             modifier = Modifier

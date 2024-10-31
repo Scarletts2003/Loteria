@@ -10,7 +10,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class LoteriaViewModels: ViewModel(){
-
+//
     private val _lotoNumbers = mutableStateOf(emptyList<Int>())
     val lotoNumbers: State<List<Int>> = _lotoNumbers
 

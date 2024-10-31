@@ -8,7 +8,7 @@ class ContadorViewModel: ViewModel() {
     private val _contador = mutableStateOf(0)
     val contador: State<Int> = _contador
 
-
+//
     fun add()
     {
         _contador.value++
