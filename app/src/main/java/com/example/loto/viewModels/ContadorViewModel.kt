@@ -11,6 +11,6 @@ class ContadorViewModel: ViewModel() {
 
     fun add()
     {
-        _contador.value = _contador.value+1
+        _contador.value++
     }
 }

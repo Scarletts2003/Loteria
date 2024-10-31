@@ -1,6 +1,7 @@
 package com.example.loto.views
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,10 +38,28 @@ fun LoteriaView(viewModels: LoteriaViewModels){
                 fontWeight = FontWeight.Bold
             )
         }else{
-            LotteryNumbers(lottonNumber)
+
+            Text(text = "Los 6 números son:",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(10.dp))
+
+            LotteryNumbers(lottonNumber, viewModels)
+            if(viewModels.isLoading){
+                CircularProgressIndicator()
+//                Text(
+//                    text = viewModels.bol.toString(),
+//                    fontSize = 24.sp,
+//                    fontWeight = FontWeight.Bold,
+//                    modifier = Modifier
+//                        .padding(10.dp)
+//
+//                )
+            }
+
         }
         
-        Button(onClick = { viewModels.generateLotoNumbers()}) {
+        Button(onClick = { viewModels.fetchData()}) {
             Text(text = "Generar", fontSize = 20.sp,
                 fontWeight = FontWeight.Bold)
         }
@@ -48,15 +68,15 @@ fun LoteriaView(viewModels: LoteriaViewModels){
 }
 
 @Composable
-fun LotteryNumbers(lottonNumber: List<Int>) {
+fun LotteryNumbers(lottonNumbers: List<Int>, viewModel: LoteriaViewModels) {
     LazyRow(
         contentPadding = PaddingValues(
             horizontal = 16.dp,
             vertical = 8.dp)
     )
     {
-
-        items(lottonNumber){ number->
+        var i:Int = 0
+        items(lottonNumbers){ number->
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
